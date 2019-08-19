@@ -1,7 +1,7 @@
 package com.comics.marvel.segooincmarvelapi.persistence;
 
-import java.util.Map;
+import com.comics.marvel.segooincmarvelapi.consume.clients.comics.model.ComicTitle;
 
 public interface Persistence {
-    void saveComicBooks(Map comics);
+    void saveComicBooks(ComicTitle[] comics);
 }

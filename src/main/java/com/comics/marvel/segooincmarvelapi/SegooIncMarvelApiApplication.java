@@ -1,28 +1,26 @@
 package com.comics.marvel.segooincmarvelapi;
 
-import com.comics.marvel.segooincmarvelapi.consume.clients.comics.ComicDataDownloader;
-import com.comics.marvel.segooincmarvelapi.persistence.Persistence;
+import com.comics.marvel.segooincmarvelapi.consume.clients.comics.MarvelDataRetriever;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
+
 
 @SpringBootApplication
-public class SegooIncMarvelApiApplication implements CommandLineRunner {
+@EnableScheduling
+public class SegooIncMarvelApiApplication {
 
     @Autowired
-    private Persistence persistence;
+    private MarvelDataRetriever marvelDataRetriever;
 
-    @Autowired
-    private ComicDataDownloader comics;
+    @Scheduled(fixedDelay = 1000*60*60L)
+    public void scheduledJob() {
+        marvelDataRetriever.retrieveData();
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(SegooIncMarvelApiApplication.class, args);
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        comics.downloadTitleInformation("2019-08-10","2019-08-19");
-        //persistence.saveComicBooks(comics.downloadComics());
     }
 }
