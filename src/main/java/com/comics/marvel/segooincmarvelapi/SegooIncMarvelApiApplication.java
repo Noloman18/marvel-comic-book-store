@@ -24,6 +24,7 @@ public class SegooIncMarvelApiApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        persistence.saveComicBooks(comics.downloadComics());
+        comics.downloadComics();
+        //persistence.saveComicBooks(comics.downloadComics());
     }
 }
