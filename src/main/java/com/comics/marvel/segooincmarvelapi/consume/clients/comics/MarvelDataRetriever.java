@@ -53,7 +53,7 @@ public class MarvelDataRetriever {
 
                     extract(begin, end);
 
-                    amazonSQS.deleteMessage("segoo-inc-property-scraper-queue", message.getReceiptHandle());
+                    amazonSQS.deleteMessage("segoo-inc-marvel-download-instruction", message.getReceiptHandle());
                     sendNotification(
                             "Successfully downloaded comic book titles",
                             String.format("Successfully downloaded comic book titles between %s and %s", begin, end));
