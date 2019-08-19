@@ -25,6 +25,7 @@
         <commons-lang3.version>3.9</commons-lang3.version>
         <guava.version>28.0-jre</guava.version>
         <aws-java-sdk-sns.version>1.11.608</aws-java-sdk-sns.version>
+        <aws-java-sdk-s3.version>1.11.613</aws-java-sdk-s3.version>
     </properties>
 
     <dependencies>
@@ -66,6 +67,14 @@
             <artifactId>aws-java-sdk-dynamodb</artifactId>
             <version>${aws-java-sdk-dynamodb.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>${aws-java-sdk-s3.version}</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>

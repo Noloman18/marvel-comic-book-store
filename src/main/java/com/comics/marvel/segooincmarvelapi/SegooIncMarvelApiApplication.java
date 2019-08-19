@@ -1,8 +1,6 @@
 package com.comics.marvel.segooincmarvelapi;
 
-import com.amazonaws.services.dynamodbv2.document.DynamoDB;
-import com.amazonaws.services.dynamodbv2.document.Table;
-import com.comics.marvel.segooincmarvelapi.consume.clients.comics.Comics;
+import com.comics.marvel.segooincmarvelapi.consume.clients.comics.ComicDataDownloader;
 import com.comics.marvel.segooincmarvelapi.persistence.Persistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,7 +14,7 @@ public class SegooIncMarvelApiApplication implements CommandLineRunner {
     private Persistence persistence;
 
     @Autowired
-    private Comics comics;
+    private ComicDataDownloader comics;
 
     public static void main(String[] args) {
         SpringApplication.run(SegooIncMarvelApiApplication.class, args);
@@ -24,7 +22,7 @@ public class SegooIncMarvelApiApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        comics.downloadComics();
+        comics.downloadTitleInformation("2019-08-10","2019-08-19");
         //persistence.saveComicBooks(comics.downloadComics());
     }
 }
