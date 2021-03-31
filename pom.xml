@@ -23,7 +23,7 @@
         <aws-java-sdk-dynamodb.version>1.11.607</aws-java-sdk-dynamodb.version>
         <lombok.version>1.18.8</lombok.version>
         <commons-lang3.version>3.9</commons-lang3.version>
-        <guava.version>28.0-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <aws-java-sdk-sns.version>1.11.608</aws-java-sdk-sns.version>
         <aws-java-sdk-s3.version>1.11.613</aws-java-sdk-s3.version>
     </properties>
